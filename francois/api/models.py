@@ -7,5 +7,6 @@ from django.db.models import (
 
 
 class Recipe(models.Model):
+    name = CharField(max_length=255)
     ingredients = CharField(max_length=2048)
     instructions = TextField()
