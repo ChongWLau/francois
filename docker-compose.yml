@@ -1,0 +1,16 @@
+services:
+  francois:
+    build: .
+    volumes:
+      - ./francois:/francois
+    environment:
+      - DJANGO_ENV=development
+    ports:
+      - 8000:8000
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - 8080:80
+    depends_on:
+      - francois
