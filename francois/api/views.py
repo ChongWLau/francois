@@ -1,15 +1,15 @@
 from rest_framework import status
-from rest_framework.viewsets import ViewsSet
+from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework.request import Request
-from django.views.generic import TemplateView
+
 from django.shortcuts import get_object_or_404
 
-from models import Recipe
-from serializers import RecipeSerializer
+from .models import Recipe
+from .serializers import RecipeSerializer
 
 
-class RecipeViewSet(ViewsSet):
+class RecipeViewSet(ViewSet):
     def create(self, request: Request) -> Response:
         serializer = RecipeSerializer()
         recipe = serializer.create(request.data)

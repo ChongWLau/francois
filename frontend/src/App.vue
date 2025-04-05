@@ -2,7 +2,7 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <v-app>
-    This is the app
+    This is Francois!
     <component :is="layout">
       <template #header>
         <GlobalTabs />
