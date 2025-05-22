@@ -2,7 +2,10 @@
     <v-navigation-drawer>
         <v-list>
             <v-list-item>
-                
+                Recipes
+            </v-list-item>
+            <v-list-item>
+                Planner
             </v-list-item>
         </v-list>
     </v-navigation-drawer>

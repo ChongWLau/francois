@@ -1,6 +1,6 @@
 <template>
-  <slot name="global-sidebar"></slot>
-  <slot name="global-header"></slot>
+  <slot name="sidebar"></slot>
+  <slot name="header"></slot>
 
   <v-main>
     <v-container fluid class="pl-lg-7">

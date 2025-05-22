@@ -1,16 +1,16 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <v-app>
-    This is Francois!
-    <component :is="layout">
-      <template #header>
-        <GlobalTabs />
-      </template>
-      <template #sidebar>
-        <GlobalSidebar />
-      </template>
-    </component>
+    This is Francois! How can I help?
+    <template v-if="ready">
+      <component :is="layout">
+        <template #header>
+          <GlobalTabs />
+        </template>
+        <template #sidebar>
+          <GlobalSidebar />
+        </template>
+      </component>
+    </template>
   </v-app>
 </template>
 
@@ -19,12 +19,10 @@ import { markRaw } from 'vue';
 import LayoutDefault from '@/common/layouts/LayoutDefault.vue';
 import GlobalTabs from '@/common/global/GlobalTabs.vue';
 import GlobalSidebar from '@/common/global/GlobalSidebar.vue';
-// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
     GlobalSidebar,
     GlobalTabs,
   },
