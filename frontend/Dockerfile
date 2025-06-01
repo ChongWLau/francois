@@ -1,35 +1,15 @@
-# FROM node:18-alpine as build-stage
+FROM node:20-slim
 
-# COPY ./ /app
-# WORKDIR /app
+WORKDIR /app
 
-# RUN yarn install
-
-
-# RUN yarn run build
-
-# # Production stage
-# FROM nginx:stable-alpine as production-stage
-
-# # Copy built files from build stage
-# COPY --from=build-stage /app/dist /usr/share/nginx/html
-
-# # Copy custom nginx config if needed
-# # COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# # Expose port
-# EXPOSE 80
-
-# # Start nginx
-# CMD ["nginx", "-g", "daemon off;"]
-
-FROM node:18-alpine
-
-WORKDIR /frontend
-
-# Install dependencies only when needed
+# Copy package files
 COPY package.json yarn.lock ./
+
+# Install dependencies
 RUN yarn install
 
-# Start development server
-CMD ["yarn", "serve"]
+# Copy the rest of the code
+COPY . .
+
+EXPOSE 5173
+CMD ["yarn", "dev", "--host"]

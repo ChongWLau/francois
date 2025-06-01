@@ -1,48 +1,24 @@
 <template>
   <v-app>
-    This is Francois! How can I help?
-    <template v-if="ready">
-      <component :is="layout">
-        <template #header>
-          <GlobalTabs />
-        </template>
-        <template #sidebar>
-          <GlobalSidebar />
-        </template>
-      </component>
-    </template>
+    <v-app-bar height="125" color="primary">
+      <img src="@/assets/francois_logo_no_bg.png" width="125" height="125" />
+      <v-toolbar-title class="text-h2">Francois</v-toolbar-title>
+      <v-btn to="/" text color="orange">Home</v-btn>
+      <v-btn to="/about" text color="orange">About</v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <v-container>
+        <v-row>
+          <v-col col="12">
+            <router-view />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
-<script>
-import { markRaw } from 'vue';
-import LayoutDefault from '@/common/layouts/LayoutDefault.vue';
-import GlobalTabs from '@/common/global/GlobalTabs.vue';
-import GlobalSidebar from '@/common/global/GlobalSidebar.vue';
+<script >
 
-export default {
-  name: 'App',
-  components: {
-    GlobalSidebar,
-    GlobalTabs,
-  },
-  data: () => ({
-    layout: markRaw(LayoutDefault),
-    ready: false,
-  }),
-  created() {
-    this.ready = true;
-  }
-}
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
